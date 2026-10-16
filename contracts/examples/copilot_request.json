@@ -1,0 +1,8 @@
+{
+  "question": "Why did this alert happen, and what evidence is missing?",
+  "event_ids": [
+    "EVENT-000001"
+  ],
+  "facts_version": "facts-v1",
+  "request_mode": "AUTO"
+}

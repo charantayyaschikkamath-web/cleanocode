@@ -1,0 +1,5 @@
+{
+  "idempotency_key": "approve-action-000001",
+  "actor_id": "operator-demo",
+  "reason": "Reviewed evidence and approved simulated test action."
+}

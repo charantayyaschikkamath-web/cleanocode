@@ -1,0 +1,161 @@
+{
+  "report_type": "TEST-SCENARIO RESULTS",
+  "schema_version": "1.0",
+  "generated_at": "2026-10-16T06:38:20.619301Z",
+  "duration_seconds": 0.237,
+  "execution_mode": "ISOLATED_IN_PROCESS_TEST",
+  "data_origin": "SYNTHETIC_SIMULATED_SCENARIOS",
+  "real_world_accuracy_claim": false,
+  "real_campus_savings_claim": false,
+  "scope_note": "These synthetic scenarios validate the API workflow and invariants only. They do not measure real-campus detector accuracy, hardware control, production reliability, or real savings.",
+  "fixture": {
+    "building_id": "3b8c554a-1220-4f6c-837e-24d137a89a7b",
+    "room_id": "d8a28448-f2a7-4366-9e05-44b0687e1553",
+    "records_persist_to_production_db": false
+  },
+  "counts": {
+    "PASS": 10,
+    "FAIL": 0
+  },
+  "status": "PASS",
+  "scenarios": [
+    {
+      "scenario": "EMPTY_ROOM_HIGH_POWER",
+      "expected_detection": "likely_energy_waste",
+      "actual_detection": [
+        "likely_energy_waste"
+      ],
+      "provenance": "SIMULATED",
+      "unknown_handling": "PASS",
+      "action_result": null,
+      "ledger_before": 0,
+      "ledger_after": 0,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "scenario": "NIGHT_WATER_FLOW",
+      "expected_detection": "likely_water_anomaly",
+      "actual_detection": [
+        "likely_water_anomaly"
+      ],
+      "provenance": "SIMULATED",
+      "unknown_handling": "PASS",
+      "action_result": null,
+      "ledger_before": 0,
+      "ledger_after": 0,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "scenario": "BIN_OVERFLOW",
+      "expected_detection": "likely_bin_overflow",
+      "actual_detection": [
+        "likely_bin_overflow"
+      ],
+      "provenance": "SIMULATED",
+      "unknown_handling": "PASS",
+      "action_result": null,
+      "ledger_before": 0,
+      "ledger_after": 0,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "scenario": "INEFFICIENT_ROOM_USE",
+      "expected_detection": "likely_inefficient_room_use",
+      "actual_detection": [
+        "likely_inefficient_room_use"
+      ],
+      "provenance": "SIMULATED",
+      "unknown_handling": "PASS",
+      "action_result": null,
+      "ledger_before": 0,
+      "ledger_after": 0,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "scenario": "NORMAL_OPERATION",
+      "expected_detection": "no event",
+      "actual_detection": "no event",
+      "provenance": "SIMULATED",
+      "unknown_handling": "PASS: normal operation did not emit an event",
+      "action_result": null,
+      "ledger_before": 0,
+      "ledger_after": 0,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "scenario": "SENSOR_MISSING",
+      "expected_detection": "evidence_insufficient",
+      "actual_detection": [
+        "evidence_insufficient"
+      ],
+      "provenance": "SIMULATED",
+      "unknown_handling": "PASS: unavailable/insufficient event surfaced; no energy-waste claim",
+      "action_result": null,
+      "ledger_before": 0,
+      "ledger_after": 0,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "scenario": "SENSOR_STALE",
+      "expected_detection": "sensor_unavailable",
+      "actual_detection": [
+        "sensor_unavailable"
+      ],
+      "provenance": "SIMULATED",
+      "unknown_handling": "PASS: unavailable/insufficient event surfaced; no energy-waste claim",
+      "action_result": null,
+      "ledger_before": 0,
+      "ledger_after": 0,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "scenario": "COMMAND_DROPPED",
+      "expected_detection": "likely_energy_waste",
+      "actual_detection": [
+        "likely_energy_waste"
+      ],
+      "provenance": "SIMULATED",
+      "unknown_handling": "PASS",
+      "action_result": "ACK_TIMEOUT",
+      "ledger_before": 0,
+      "ledger_after": 0,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "scenario": "ACKNOWLEDGED_IGNORED",
+      "expected_detection": "likely_energy_waste",
+      "actual_detection": [
+        "likely_energy_waste"
+      ],
+      "provenance": "SIMULATED",
+      "unknown_handling": "PASS",
+      "action_result": "VERIFICATION_FAILED",
+      "ledger_before": 0,
+      "ledger_after": 0,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "scenario": "VERIFIED_RESPONSE",
+      "expected_detection": "likely_energy_waste",
+      "actual_detection": [
+        "likely_energy_waste"
+      ],
+      "provenance": "SIMULATED",
+      "unknown_handling": "PASS",
+      "action_result": "VERIFIED_SUCCESS; idempotent repeat held",
+      "ledger_before": 0,
+      "ledger_after": 1,
+      "status": "PASS",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "message_id": "WS-MSG-000001",
+  "type": "event.created",
+  "emitted_at": "2026-10-15T12:05:00Z",
+  "entity_type": "event",
+  "entity_id": "EVENT-000001",
+  "version": 1,
+  "payload": {
+    "event_id": "EVENT-000001",
+    "status": "OPEN"
+  }
+}

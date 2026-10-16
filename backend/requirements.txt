@@ -1,0 +1,17 @@
+# Verified compatible local backend stack. Install inside a virtual environment.
+fastapi==0.128.2
+uvicorn==0.48.0
+SQLAlchemy==2.0.50
+pydantic==2.13.5
+PyYAML==6.0.3
+python-dotenv==1.2.2
+httpx==0.28.1
+numpy==2.3.5
+opencv-python-headless==4.13.0.92
+Pillow==12.3.0
+pytest==9.0.2
+pytest-asyncio==1.3.0
+
+# Optional CPU ONNX inference runtime. Install only after selecting a model whose
+# license, provenance, hash, and preprocessing contract have been reviewed.
+# onnxruntime==1.24.0

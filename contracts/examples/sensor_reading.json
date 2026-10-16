@@ -1,0 +1,21 @@
+{
+  "id": "READING-000001",
+  "source_id": "SENSOR-POWER-ROOM-101",
+  "source_type": "POWER_METER",
+  "resource_type": "ENERGY",
+  "building_id": "BLD-01",
+  "room_id": "ROOM-101",
+  "value": 820.0,
+  "unit": "W",
+  "observed_at": "2026-10-15T12:00:00Z",
+  "recorded_at": "2026-10-15T12:00:01Z",
+  "time_domain": "VIRTUAL",
+  "virtual_elapsed_seconds": 600.0,
+  "source_status": "HEALTHY",
+  "freshness_seconds": 0.0,
+  "provenance": "SIMULATED",
+  "quality_flags": [],
+  "metadata": {
+    "scenario_run_id": "SCENARIO-0001"
+  }
+}

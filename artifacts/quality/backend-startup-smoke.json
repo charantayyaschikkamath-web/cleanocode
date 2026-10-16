@@ -1,0 +1,27 @@
+{
+  "command": "CAMPUS_TWIN_DATABASE_URL=sqlite:///:memory: PYTHONPATH=backend python - (FastAPI TestClient against app.main)",
+  "generated_at": "2026-10-16T05:30:54.973648Z",
+  "status": "PASS",
+  "health_http_status": 200,
+  "health_payload": {
+    "status": "ok",
+    "app": "CampusTwin AI API",
+    "version": "0.1.0",
+    "environment": "development",
+    "database": "healthy",
+    "clock": {
+      "multiplier": 30.0,
+      "virtual_now": "2026-10-16T05:30:57.065734Z",
+      "wall_now": "2026-10-16T05:30:54.755800Z",
+      "duration_unit": "virtual_seconds"
+    }
+  },
+  "openapi_http_status": 200,
+  "required_integrated_routes": {
+    "/api/v1/ui/dashboard/overview": true,
+    "/api/vision/health": true,
+    "/api/copilot/query": true,
+    "/api/v1/preflight": true
+  },
+  "database_mode": "in-memory smoke only; not restart-persistence evidence"
+}

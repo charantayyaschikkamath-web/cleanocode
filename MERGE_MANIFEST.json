@@ -1,0 +1,64 @@
+{
+  "project": "CampusTwin AI",
+  "artifact_type": "integrated_local_demo",
+  "merge_date": "2026-10-16",
+  "source_workstreams": [
+    {
+      "account": 1,
+      "role": "architecture_contracts_competition_brief"
+    },
+    {
+      "account": 2,
+      "role": "backend_persistence_configuration_impact"
+    },
+    {
+      "account": 3,
+      "role": "detection_scenarios_actions_verification"
+    },
+    {
+      "account": 4,
+      "role": "local_vision_camera_evidence"
+    },
+    {
+      "account": 5,
+      "role": "main_react_frontend_shell_dashboard_navigation"
+    },
+    {
+      "account": 6,
+      "role": "digital_twin_charts_visualizations"
+    },
+    {
+      "account": 7,
+      "role": "copilot_what_if_reports"
+    },
+    {
+      "account": 8,
+      "role": "quality_preflight_offline_demo_evaluation"
+    }
+  ],
+  "added_in_merge": [
+    "frontend camera route with local uploaded-video frame sampling",
+    "frontend compatibility API adapter backed by persisted records",
+    "sanitized persisted-facts bridge for Copilot and What-If",
+    "canonical router registration for scenarios/actions/vision/copilot/reports/what-if",
+    "end-to-end integration tests for success, failure, idempotency, template fallback and ledger invariants"
+  ],
+  "current_quality_status": {
+    "python_tests": "90 passed",
+    "synthetic_scenarios": "10 of 10 passed",
+    "canonical_backend_smoke": "health 200, OpenAPI 200, key integrated routes present",
+    "frontend_typescript_syntax": "32 files parsed; no syntax diagnostics",
+    "release_preflight": "FAIL: 29 PASS, 5 WARN, 1 FAIL (frontend build missing)",
+    "offline_readiness": "FAIL: 1 PASS, 4 WARN, 2 FAIL (frontend lockfile/build missing)",
+    "frontend_typecheck_build_browser_e2e": "not verified; npm registry DNS failed in the build environment",
+    "offline_ready": false,
+    "local_vision_model_included": false
+  },
+  "truth_boundaries": [
+    "Synthetic test results are not real-world accuracy or campus-savings evidence",
+    "Only VERIFIED_SUCCESS action results create a simulated impact ledger entry",
+    "No third-party detector weights or secrets are bundled",
+    "The original uploaded video remains in the browser; only sampled JPEG frames are sent to the configured backend",
+    "Missing or unhealthy camera evidence remains UNKNOWN or UNAVAILABLE"
+  ]
+}

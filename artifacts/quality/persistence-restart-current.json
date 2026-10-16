@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-10-16T06:38:21.628519+00:00",
+  "scope": "LOCAL RELEASE CHECK; synthetic scenario inputs only",
+  "checks": [
+    {
+      "name": "backend_start_1",
+      "status": "PASS",
+      "detail": "Backend started; dashboard API returned HTTP 200 and /demo served the dependency-free HTML UI."
+    },
+    {
+      "name": "verified_success",
+      "status": "PASS",
+      "detail": "Energy-waste scenario was approved, independently verified, and created exactly one simulated ledger entry."
+    },
+    {
+      "name": "failed_action_no_savings",
+      "status": "PASS",
+      "detail": "Dropped command reached ACK_TIMEOUT and did not change the ledger."
+    },
+    {
+      "name": "backend_stop",
+      "status": "PASS",
+      "detail": "First backend process terminated before restart."
+    },
+    {
+      "name": "persistence_after_restart",
+      "status": "PASS",
+      "detail": "Both events and actions persisted; ledger remained at one entry (events=2, actions=2, ledger=1)."
+    }
+  ],
+  "status": "PASS",
+  "database": "temporary SQLite database; removed after test",
+  "backend_restarts": 1,
+  "persisted_events": 2,
+  "persisted_actions": 2,
+  "ledger_entries": 1
+}

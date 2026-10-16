@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>CampusTwin AI — Local Demo</title>
+<style>
+:root{color-scheme:dark;--bg:#080c16;--panel:#111827;--panel2:#151f31;--line:#29374b;--text:#eef4ff;--muted:#98a8c0;--cyan:#5ee7e1;--blue:#7aa7ff;--violet:#b89aff;--green:#6ee7a3;--amber:#ffd27a;--red:#ff8e9a;--radius:18px;--shadow:0 22px 55px #0003;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 16% 0%,#172e4a 0,transparent 36%),radial-gradient(ellipse at 95% 8%,#30224e 0,transparent 29%),var(--bg);color:var(--text);min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.42;cursor:not-allowed}.shell{min-height:100vh;display:grid;grid-template-columns:248px minmax(0,1fr)}.sidebar{padding:25px 16px;border-right:1px solid #ffffff12;background:#080c16bd;display:flex;flex-direction:column;gap:25px}.brand{display:flex;gap:12px;align-items:center;padding:0 9px}.brand-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--cyan),var(--blue) 58%,var(--violet));color:#091120;display:grid;place-items:center;font-weight:900;font-size:20px;box-shadow:0 10px 30px #5ee7e12b}.brand-name{font-size:15px;font-weight:800;letter-spacing:.01em}.brand-sub{color:var(--muted);font-size:11px;margin-top:4px}.nav-label,.eyebrow{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#86a2c5}.nav{display:grid;gap:6px}.nav button{display:flex;align-items:center;gap:10px;text-align:left;width:100%;padding:11px 12px;border:1px solid transparent;background:transparent;border-radius:12px;color:#aebbd0;font-size:13px}.nav button .nav-icon{width:24px;height:24px;display:grid;place-items:center;border-radius:7px;background:#ffffff09;color:#c8d5ea;font-size:14px}.nav button:hover,.nav button.active{background:#172439;border-color:#354965;color:#fff}.nav button.active .nav-icon{background:#254d60;color:var(--cyan)}.side-bottom{margin-top:auto;padding:14px;border:1px solid var(--line);background:#111a2a;border-radius:14px}.side-bottom strong{display:block;font-size:12px}.side-bottom p{font-size:11px;line-height:1.6;color:var(--muted);margin:7px 0 0}.side-dot{display:inline-block;width:7px;height:7px;border-radius:99px;background:var(--green);margin-right:7px}.main{padding:28px clamp(16px,3vw,42px) 44px;min-width:0;max-width:1600px;width:100%;margin:0 auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px}.topbar h1{margin:0;font-size:clamp(23px,3vw,34px);letter-spacing:-.045em;line-height:1.1}.topbar p{margin:9px 0 0;color:var(--muted);font-size:13px}.top-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.chip{display:inline-flex;gap:7px;align-items:center;padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:#111a2a;font-size:11px;color:#c4d2e7;white-space:nowrap}.chip b{color:var(--cyan);font-weight:700}.btn{border:1px solid #3c5674;background:linear-gradient(135deg,#24445b,#29375f);color:#f5f8ff;border-radius:11px;padding:10px 14px;font-weight:750;font-size:12px;transition:transform .15s,border-color .15s}.btn:hover:not(:disabled){transform:translateY(-1px);border-color:var(--cyan)}.btn.primary{background:linear-gradient(135deg,#51d8ce,#82aaff);color:#081321;border-color:transparent}.btn.secondary{background:#151f31;border-color:#35435a}.btn.danger{background:#40202b;border-color:#71424b;color:#ffd4d9}.btn.small{padding:7px 10px;font-size:11px}.btn-row{display:flex;gap:8px;flex-wrap:wrap}.notice{display:none;margin:0 0 18px;padding:12px 14px;border:1px solid #805e2d;border-radius:12px;background:#342813;color:#ffe5b4;font-size:12px;line-height:1.55}.notice.show{display:block}.notice.error{border-color:#75404a;background:#341c25;color:#ffcbd0}.notice.ok{border-color:#27624e;background:#122d25;color:#b4f7d9}.view[hidden]{display:none!important}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;margin:29px 0 14px}.section-head h2{font-size:17px;letter-spacing:-.025em;margin:0}.section-head p{font-size:12px;color:var(--muted);margin:6px 0 0}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.metric{padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,#151f30f2,#101726f2);box-shadow:var(--shadow);min-width:0}.metric-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px;gap:10px}.metric-icon{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:#254457;color:var(--cyan);font-size:15px}.metric-value{font-size:29px;font-weight:850;letter-spacing:-.05em;margin:16px 0 5px}.metric-foot{color:#89a2c0;font-size:10px;line-height:1.45}.grid-two{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:15px}.panel{padding:19px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,#141e2ff7,#0f1726f7);box-shadow:var(--shadow);min-width:0}.panel-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.panel-title h3{font-size:14px;margin:0}.panel-title p{font-size:11px;color:var(--muted);margin:5px 0 0}.label{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:#8ea6c5}.scenario-list{display:grid;gap:9px}.scenario{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid #2b3a50;border-radius:13px;background:#0c1421}.scenario-icon{width:37px;height:37px;border-radius:12px;background:#1b3345;color:var(--cyan);display:grid;place-items:center;font-size:17px;flex-shrink:0}.scenario-copy{min-width:0;flex:1}.scenario-copy strong{display:block;font-size:12px}.scenario-copy span{display:block;font-size:10px;color:var(--muted);margin-top:4px;line-height:1.4}.event-list,.action-list{display:grid;gap:9px}.event-row,.action-row{border:1px solid #2b3a50;border-radius:13px;background:#0c1421;padding:13px;display:flex;gap:11px;align-items:flex-start}.sev{width:8px;height:8px;flex-shrink:0;margin-top:5px;border-radius:99px;background:var(--amber);box-shadow:0 0 0 4px #ffd27a13}.sev.HIGH,.sev.CRITICAL{background:var(--red);box-shadow:0 0 0 4px #ff8e9a15}.event-main,.action-main{flex:1;min-width:0}.event-main strong,.action-main strong{display:block;font-size:12px;line-height:1.45}.event-main p,.action-main p{margin:5px 0 0;color:var(--muted);font-size:10px;line-height:1.5}.status{font-size:9px;letter-spacing:.05em;text-transform:uppercase;font-weight:850;padding:5px 7px;border-radius:7px;border:1px solid #435169;background:#1a2537;color:#c8d6ec;white-space:nowrap}.status.good{background:#143429;border-color:#2c6854;color:#a6f4cf}.status.warn{background:#3a2c16;border-color:#795b2a;color:#ffe1a1}.status.bad{background:#3b202b;border-color:#78404b;color:#ffccd3}.pill{display:inline-block;font-size:9px;padding:4px 6px;border-radius:6px;margin-right:5px;background:#263246;color:#b4c8e5;border:1px solid #34465f}.pill.sim{background:#29304b;color:#d7cbff;border-color:#494e7a}.empty{padding:22px 12px;text-align:center;color:var(--muted);font-size:12px;border:1px dashed #34445b;border-radius:12px}.hint{font-size:11px;color:var(--muted);line-height:1.6}.field{display:grid;gap:6px;font-size:11px;color:#a6b6cd}.field input,.field select,.search{width:100%;background:#0a1220;border:1px solid #35445b;border-radius:10px;color:var(--text);padding:10px 11px;outline:none;min-width:0}.field input:focus,.field select:focus,.search:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #5ee7e118}.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px}.filters .search{flex:1;min-width:180px}.events-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:14px}.detail h3{font-size:17px;line-height:1.3;margin:10px 0}.detail p{font-size:12px;line-height:1.7;color:#c2cee1}.detail dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:14px 0}.detail dl div{border:1px solid #2c3a50;border-radius:10px;background:#0c1421;padding:10px;min-width:0}.detail dt{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#8da2bf;margin-bottom:7px}.detail dd{font-size:11px;margin:0;line-height:1.55;overflow-wrap:anywhere}.evidence{border:1px solid #2b3a50;background:#0c1421;border-radius:10px;padding:11px;margin:8px 0}.evidence strong{font-size:11px;display:block}.evidence p{margin:5px 0 0;font-size:10px;overflow-wrap:anywhere}.timeline{display:grid;gap:7px;margin-top:12px}.timeline-item{display:flex;gap:10px;font-size:10px;color:var(--muted);padding:8px;border-left:2px solid #47607a;background:#0c1421}.timeline-item strong{color:#e1ebfa}.building-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.building{border:1px solid var(--line);background:#111a2a;padding:17px;border-radius:15px}.building h3{margin:0;font-size:14px}.building .building-meta{font-size:10px;color:var(--muted);margin:7px 0 13px}.room-chip{display:inline-flex;align-items:center;gap:7px;margin:4px 4px 0 0;padding:7px 8px;border:1px solid #34445b;background:#0b1320;border-radius:9px;color:#d2dff2;font-size:10px;cursor:pointer}.room-chip:hover{border-color:var(--cyan)}.camera-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:15px}.video-box{width:100%;background:#05080f;border:1px solid #29384e;border-radius:14px;overflow:hidden;aspect-ratio:16/9;display:grid;place-items:center;position:relative}.video-box video{width:100%;height:100%;object-fit:contain}.video-placeholder{position:absolute;text-align:center;color:var(--muted);font-size:11px;padding:20px;pointer-events:none}.video-placeholder strong{display:block;font-size:13px;color:#dce8fb;margin-bottom:6px}.camera-controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:12px}.checkline{display:flex;align-items:flex-start;gap:9px;font-size:11px;color:#aabbd2;line-height:1.55;margin-top:13px}.checkline input{margin-top:2px;accent-color:var(--cyan)}.progress-wrap{margin-top:10px}.progress-wrap progress{width:100%;height:8px;accent-color:var(--cyan)}.progress-label{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:6px}.result-box{white-space:pre-wrap;overflow-wrap:anywhere;background:#080e18;border:1px solid #2b3c53;border-radius:12px;padding:13px;font-size:10px;color:#bbd5ee;line-height:1.6;max-height:300px;overflow:auto}.report-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.report-card{border:1px solid var(--line);background:#111a2a;border-radius:14px;padding:17px}.report-card h3{font-size:13px;margin:0}.report-card p{color:var(--muted);font-size:11px;line-height:1.55;margin:8px 0 14px}.health-list{display:grid;gap:9px}.health-row{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #ffffff0e;padding:9px 0;font-size:11px}.health-row:last-child{border:0}.footer{font-size:10px;color:#778aa5;margin-top:25px;line-height:1.65}.kbd{font:10px ui-monospace,monospace;background:#202c3e;border:1px solid #3b4b63;border-radius:5px;padding:3px 5px}
+@media(max-width:1100px){.shell{grid-template-columns:205px minmax(0,1fr)}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-two,.camera-grid{grid-template-columns:1fr}}
+@media(max-width:780px){.shell{display:block}.sidebar{padding:13px;border-right:0;border-bottom:1px solid #ffffff12;gap:13px}.brand{padding:2px}.nav{display:flex;overflow-x:auto;padding-bottom:3px}.nav button{width:auto;white-space:nowrap;padding:9px}.nav button .nav-icon{display:none}.side-bottom{display:none}.main{padding:20px 13px 32px}.topbar{align-items:flex-start;flex-direction:column}.top-actions{width:100%}.events-layout{grid-template-columns:1fr}.building-grid,.report-links{grid-template-columns:1fr}.detail dl{grid-template-columns:1fr 1fr}}
+@media(max-width:450px){.metrics{grid-template-columns:1fr 1fr;gap:8px}.metric{padding:13px}.metric-value{font-size:24px}.top-actions .chip{font-size:10px}.panel{padding:13px}.detail dl{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">C</div><div><div class="brand-name">CampusTwin AI</div><div class="brand-sub">SUSTAINABILITY OPERATIONS</div></div></div>
+    <div class="nav-label">Workspace</div>
+    <nav class="nav" aria-label="Main navigation">
+      <button class="active" data-view="overview"><span class="nav-icon">⌂</span>Overview</button>
+      <button data-view="campus"><span class="nav-icon">▦</span>Campus twin</button>
+      <button data-view="events"><span class="nav-icon">◈</span>Events & evidence</button>
+      <button data-view="actions"><span class="nav-icon">⇄</span>Actions & audit</button>
+      <button data-view="camera"><span class="nav-icon">◉</span>Camera & video</button>
+      <button data-view="reports"><span class="nav-icon">▤</span>Reports & system</button>
+    </nav>
+    <div class="side-bottom"><strong><span class="side-dot"></span>Local demo mode</strong><p>Core operations run on your machine. Synthetic scenarios are labelled. No cloud model or third-party asset is required for this fallback.</p></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><div class="eyebrow">LOCAL NO-BUILD FALLBACK · CORE WORKFLOW</div><h1>Campus command center</h1><p>Observe an issue. Inspect evidence. Approve a response. Verify the outcome.</p></div><div class="top-actions"><span id="api-chip" class="chip"><span class="side-dot" style="background:var(--amber)"></span><b>API checking…</b></span><button class="btn secondary" id="refresh-button">↻ Refresh data</button></div></header>
+    <div id="notice" class="notice" role="status" aria-live="polite"></div>
+
+    <section class="view" id="view-overview">
+      <div class="metrics">
+        <article class="metric"><div class="metric-top">Open campus issues <span class="metric-icon">◈</span></div><div id="metric-events" class="metric-value">—</div><div class="metric-foot">From persisted event records</div></article>
+        <article class="metric"><div class="metric-top">Awaiting approval <span class="metric-icon">⇄</span></div><div id="metric-pending" class="metric-value">—</div><div class="metric-foot">Human approval required</div></article>
+        <article class="metric"><div class="metric-top">Verified actions <span class="metric-icon">✓</span></div><div id="metric-verified" class="metric-value">—</div><div class="metric-foot">Independently verified status</div></article>
+        <article class="metric"><div class="metric-top">Ledger records <span class="metric-icon">▤</span></div><div id="metric-ledger" class="metric-value">—</div><div class="metric-foot">Verified simulated impact, not measured campus savings</div></article>
+      </div>
+      <div class="section-head"><div><h2>Run a repeatable demo scenario</h2><p>Every scenario is explicitly simulated and written to the backend database.</p></div><span class="pill sim">SIMULATED INPUTS</span></div>
+      <div class="grid-two">
+        <div class="panel"><div class="panel-title"><div><h3>Scenario lab</h3><p>Trigger a resource condition through a real API call.</p></div></div><div class="scenario-list">
+          <div class="scenario"><div class="scenario-icon">ϟ</div><div class="scenario-copy"><strong>Energy waste · successful response</strong><span>Empty room / high power → propose action → verify result.</span></div><button class="btn primary small" data-scenario="empty_room_high_power">Run</button></div>
+          <div class="scenario"><div class="scenario-icon">⌁</div><div class="scenario-copy"><strong>Energy waste · dropped command</strong><span>Failure injection; the ledger must remain unchanged.</span></div><button class="btn danger small" data-scenario="empty_room_high_power" data-outcome="COMMAND_DROPPED">Run fail</button></div>
+          <div class="scenario"><div class="scenario-icon">≈</div><div class="scenario-copy"><strong>Night water-flow anomaly</strong><span>Detect a likely water anomaly from synthetic readings.</span></div><button class="btn secondary small" data-scenario="night_water_flow">Run</button></div>
+          <div class="scenario"><div class="scenario-icon">○</div><div class="scenario-copy"><strong>Normal operation</strong><span>Control case; expected to produce no alert.</span></div><button class="btn secondary small" data-scenario="normal_operation">Run</button></div>
+        </div></div>
+        <div class="panel"><div class="panel-title"><div><h3>Latest events</h3><p>Open evidence instead of trusting an alert label.</p></div><button class="btn secondary small" data-go="events">All events →</button></div><div id="recent-events" class="event-list"><div class="empty">Loading persisted events…</div></div></div>
+      </div>
+      <div class="section-head"><div><h2>Verified impact ledger</h2><p>Failure and acknowledgement alone never earn a savings entry.</p></div></div>
+      <div class="panel"><div id="ledger-table"><div class="empty">Loading ledger…</div></div></div>
+    </section>
+
+    <section class="view" id="view-campus" hidden>
+      <div class="section-head" style="margin-top:0"><div><h2>Interactive campus / building view</h2><p>Select a room to use it as the context for camera evidence. Buildings appear after a scenario or seed data creates them.</p></div></div>
+      <div id="buildings-grid" class="building-grid"><div class="empty">Loading buildings…</div></div>
+    </section>
+
+    <section class="view" id="view-events" hidden>
+      <div class="section-head" style="margin-top:0"><div><h2>Events & evidence</h2><p>Inspect timestamps, source provenance, trigger rules, thresholds and linked readings.</p></div></div>
+      <div class="filters"><input id="event-search" class="search" type="search" placeholder="Search events, rooms or rules…" aria-label="Search events"><select id="event-status" class="search" style="max-width:170px" aria-label="Filter events by status"><option value="">All statuses</option><option>OPEN</option><option>ACKNOWLEDGED</option><option>RESOLVED</option><option>FALSE_ALARM</option></select></div>
+      <div class="events-layout"><div id="all-events" class="event-list"><div class="empty">Loading events…</div></div><article id="event-detail" class="panel detail"><div class="empty">Choose an event to inspect its evidence.</div></article></div>
+    </section>
+
+    <section class="view" id="view-actions" hidden>
+      <div class="section-head" style="margin-top:0"><div><h2>Actions & audit timeline</h2><p>Approval is not success. Only persisted independent verification can change the ledger.</p></div></div>
+      <div id="all-actions" class="action-list"><div class="empty">Loading actions…</div></div>
+    </section>
+
+    <section class="view" id="view-camera" hidden>
+      <div class="section-head" style="margin-top:0"><div><h2>Camera & recorded-video evidence</h2><p>Live preview or local video selection. Missing detector/model means inference is unavailable, not “room empty.”</p></div><span id="detector-pill" class="status warn">Checking detector…</span></div>
+      <div class="camera-grid">
+        <div class="panel"><div class="panel-title"><div><h3>Live webcam / USB camera</h3><p>Starts only after explicit operator action; no audio is requested.</p></div></div><div class="video-box"><video id="live-video" autoplay muted playsinline></video><div id="live-placeholder" class="video-placeholder"><strong>Camera preview is off</strong>Nothing is captured until you start the camera.</div></div><div class="camera-controls"><button class="btn primary" id="start-camera">Start camera</button><button class="btn secondary" id="stop-camera" disabled>Stop camera</button></div><label class="checkline"><input type="checkbox" id="coverage-check"><span>I reviewed this view and confirmed it covers the relevant room area. This is an operator attestation, not automated proof.</span></label><p class="hint" id="camera-message">Camera access needs localhost/HTTPS and browser permission. If no model is configured, preview remains available but inference is unavailable.</p></div>
+        <div class="panel"><div class="panel-title"><div><h3>Upload a recorded video</h3><p>The original stays in this browser tab. Only downsized sampled frames are sent for inference when a model is configured.</p></div></div><div class="field"><label for="video-file">Choose MP4/WebM/video file (up to 250 MB)</label><input type="file" id="video-file" accept="video/mp4,video/webm,video/quicktime,video/*"></div><div id="uploaded-preview-wrap" style="display:none;margin-top:12px"><video id="uploaded-video" controls playsinline preload="metadata" style="width:100%;max-height:260px;background:#05080f;border:1px solid var(--line);border-radius:12px"></video><p class="hint" id="video-meta"></p></div><div class="camera-controls"><label class="field" style="min-width:145px">Sample interval<select id="sample-interval"><option value="1">Every 1 second</option><option value="2" selected>Every 2 seconds</option><option value="5">Every 5 seconds</option><option value="10">Every 10 seconds</option></select></label><button id="analyze-video" class="btn primary" disabled>Analyze video</button><button id="stop-video-analysis" class="btn secondary" disabled>Stop</button></div><div id="video-progress" class="progress-wrap" hidden><div class="progress-label"><span>Frames analyzed</span><strong id="progress-count">0 / 0</strong></div><progress id="progress-bar" max="1" value="0"></progress></div><p class="hint" id="video-message">Select a file to preview it. Actual inference requires a reviewed local ONNX model configured on the backend.</p></div>
+      </div>
+      <div class="section-head"><div><h2>Latest detector response</h2><p>Raw response from the backend; never sent to the Copilot.</p></div></div><div class="panel"><pre id="vision-result" class="result-box">No camera evidence processed yet.</pre></div>
+    </section>
+
+    <section class="view" id="view-reports" hidden>
+      <div class="section-head" style="margin-top:0"><div><h2>Reports & system health</h2><p>Export persisted evidence and check what is available locally.</p></div></div>
+      <div class="report-links"><div class="report-card"><h3>Evidence packet · JSON</h3><p>Download persisted events, action outcomes and ledger entries, with provenance notes.</p><a class="btn primary" href="/api/v1/ui/reports/export?format=json">Download JSON</a></div><div class="report-card"><h3>Evidence packet · CSV</h3><p>Download a compact spreadsheet-friendly record export.</p><a class="btn secondary" href="/api/v1/ui/reports/export?format=csv">Download CSV</a></div></div>
+      <div class="section-head"><div><h2>Live preflight</h2><p>Values below are queried from the running service; optional provider/model absence is not hidden.</p></div><button id="run-preflight" class="btn secondary small">Recheck</button></div>
+      <div class="panel"><div id="health-list" class="health-list"><div class="empty">Checking health…</div></div></div>
+    </section>
+    <footer class="footer">CampusTwin AI · Local operations prototype · Synthetic scenarios are not live campus measurements. Verified simulated impact is not measured real-world savings. This no-build fallback is independent of the React/Vite frontend bundle.</footer>
+  </main>
+</div>
+<script>
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const state = { overview:null, events:[], actions:[], buildings:[], visionHealth:null, selectedEventId:null, selectedRoomId:'CS-LAB-01', stream:null, cameraTimer:null, frameBusy:false, uploadedUrl:null, videoBusy:false, cancelVideo:false, videoFile:null };
+  const api = async (url, options={}) => {
+    const response = await fetch(url, {cache:'no-store', ...options});
+    if (!response.ok) {
+      let message = `${response.status} ${response.statusText}`;
+      try { const body = await response.json(); message = body?.error?.message || body?.detail?.message || body?.detail || message; } catch (_) {}
+      throw new Error(String(message));
+    }
+    const type = response.headers.get('content-type') || '';
+    return type.includes('application/json') ? response.json() : response;
+  };
+  const esc = (value) => String(value ?? '—').replace(/[&<>"']/g, (ch) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const when = (value) => { if (!value) return '—'; const date = new Date(value); return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString(); };
+  const stateClass = (value) => ['VERIFIED_SUCCESS','RESOLVED','HEALTHY','PASS','AVAILABLE'].includes(String(value).toUpperCase()) ? 'good' : ['ACK_TIMEOUT','FAILED','FAIL','UNAVAILABLE','UNKNOWN','VERIFICATION_FAILED'].includes(String(value).toUpperCase()) ? 'bad' : 'warn';
+  function notify(message, kind='') { const n=$('notice'); n.textContent=message; n.className=`notice show ${kind}`; if (kind==='ok') window.setTimeout(()=>{ if(n.textContent===message) n.className='notice'; }, 4200); }
+  function showView(name) { document.querySelectorAll('.view').forEach(el=>el.hidden=el.id!==`view-${name}`); document.querySelectorAll('[data-view]').forEach(el=>el.classList.toggle('active',el.dataset.view===name)); const titles={overview:'Campus command center',campus:'Interactive campus twin',events:'Events & evidence',actions:'Actions & audit',camera:'Camera & video evidence',reports:'Reports & system health'}; document.querySelector('.topbar h1').textContent=titles[name]||'Campus command center'; if(name==='camera') refreshVision(); if(name==='reports') refreshPreflight(); }
+  document.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>showView(button.dataset.view)));
+  document.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('click',()=>showView(button.dataset.go)));
+  $('refresh-button').addEventListener('click',()=>refreshAll().catch(error=>notify(error.message,'error')));
+  document.querySelectorAll('[data-scenario]').forEach(button=>button.addEventListener('click',()=>runScenario(button.dataset.scenario,button.dataset.outcome)));
+
+  function renderMetrics() {
+    const o=state.overview||{}; const counts=o.counts||{};
+    $('metric-events').textContent=counts.openEvents ?? '—';
+    $('metric-pending').textContent=counts.actionsAwaitingApproval ?? '—';
+    $('metric-verified').textContent=counts.verifiedActions ?? '—';
+    $('metric-ledger').textContent=Array.isArray(o.ledger)?o.ledger.length:'—';
+    const connected=Boolean(o.health?.backend?.state==='HEALTHY'||o.health?.connection==='CONNECTED');
+    $('api-chip').innerHTML=`<span class="side-dot" style="background:${connected?'var(--green)':'var(--red)'}"></span><b>${connected?'API connected':'API status unknown'}</b>`;
+    $('ledger-table').innerHTML=renderLedger(o.ledger||[]);
+  }
+  function renderLedger(rows) {
+    if(!rows.length) return '<div class="empty">No verified ledger entries yet. A successful action must pass independent verification before an entry is created.</div>';
+    return `<div style="overflow:auto"><table style="border-collapse:collapse;width:100%;font-size:11px"><thead><tr style="color:var(--muted);text-align:left"><th style="padding:10px">Resource</th><th style="padding:10px">Impact</th><th style="padding:10px">Status</th><th style="padding:10px">Source</th></tr></thead><tbody>${rows.map(r=>`<tr style="border-top:1px solid #ffffff12"><td style="padding:10px">${esc(r.resourceType||'Resource')}</td><td style="padding:10px">${esc(r.quantity)} ${esc(r.unit)}</td><td style="padding:10px"><span class="status ${stateClass(r.status)}">${esc(r.status)}</span></td><td style="padding:10px"><span class="pill sim">${esc(r.provenance||'SIMULATED')}</span></td></tr>`).join('')}</tbody></table></div><p class="hint">Amounts are simulated/verified according to the scenario records; they are not independent real-campus measurements.</p>`;
+  }
+  function eventCard(event) {
+    return `<button class="event-row" data-event-id="${esc(event.id)}" style="width:100%;text-align:left;color:inherit" aria-label="Inspect ${esc(event.title)}"><span class="sev ${esc(event.severity)}"></span><span class="event-main"><strong>${esc(event.title)}</strong><p>${esc(event.buildingName)}${event.roomName?' · '+esc(event.roomName):''} · ${esc(event.status)}</p><p>${esc(event.summary)}</p><span class="pill sim">${esc(event.provenance)}</span><span class="pill">${esc(event.severity)}</span></span></button>`;
+  }
+  function renderEventCollection() {
+    const search=($('event-search')?.value||'').trim().toLowerCase(); const status=$('event-status')?.value||'';
+    const rows=state.events.filter(e=>(!status||e.status===status)&&(!search||[e.title,e.summary,e.eventType,e.buildingName,e.roomName,e.triggerRule].some(v=>String(v||'').toLowerCase().includes(search))));
+    const html=rows.length?rows.map(eventCard).join(''):'<div class="empty">No events match the current filter.</div>';
+    if($('all-events')) $('all-events').innerHTML=html;
+    $('recent-events').innerHTML=state.events.slice(0,5).map(eventCard).join('')||'<div class="empty">No events yet. Run an explicit demo scenario to create labelled synthetic evidence.</div>';
+    if(state.selectedEventId && !state.events.some(e=>e.id===state.selectedEventId)) state.selectedEventId=null;
+    if(state.selectedEventId) renderEventDetail(state.events.find(e=>e.id===state.selectedEventId));
+    else if(rows.length) { state.selectedEventId=rows[0].id; renderEventDetail(rows[0]); }
+    else $('event-detail').innerHTML='<div class="empty">Choose an event to inspect its evidence.</div>';
+    document.querySelectorAll('[data-event-id]').forEach(btn=>btn.addEventListener('click',()=>{state.selectedEventId=btn.dataset.eventId;renderEventDetail(state.events.find(e=>e.id===state.selectedEventId));showView('events');}));
+  }
+  function renderEventDetail(event) {
+    if(!event){$('event-detail').innerHTML='<div class="empty">Choose an event to inspect its evidence.</div>';return;}
+    const evidence=(event.evidence||[]).map(item=>`<div class="evidence"><strong>${esc(item.label)}</strong><p>${esc(item.detail)}</p></div>`).join('')||'<div class="empty">No linked readings found in this event snapshot.</div>';
+    const limitations=(event.limitations||[]).map(item=>`<li>${esc(item)}</li>`).join('');
+    $('event-detail').innerHTML=`<span class="pill sim">${esc(event.provenance)}</span><span class="status ${stateClass(event.status)}">${esc(event.status)}</span><h3>${esc(event.title)}</h3><p>${esc(event.summary)}</p><dl><div><dt>Building / room</dt><dd>${esc(event.buildingName)} / ${esc(event.roomName||'—')}</dd></div><div><dt>Severity</dt><dd>${esc(event.severity)}</dd></div><div><dt>First seen</dt><dd>${esc(when(event.firstSeenAt))}</dd></div><div><dt>Last updated</dt><dd>${esc(when(event.updatedAt))}</dd></div><div><dt>Trigger rule</dt><dd>${esc(event.triggerRule)}</dd></div><div><dt>Threshold / inputs</dt><dd>${esc(event.threshold)}</dd></div></dl><div class="label">Evidence snapshot</div>${evidence}<div class="label" style="margin-top:14px">Evidence limitations</div><ul class="hint">${limitations||'<li>No additional limitation text was attached.</li>'}</ul><p class="hint">Event ID: <span class="kbd">${esc(event.id)}</span></p>`;
+  }
+  function renderActions() {
+    const rows=state.actions;
+    $('all-actions').innerHTML=rows.map(action=>`<article class="action-row"><span class="sev ${action.state==='VERIFIED_SUCCESS'?'':'HIGH'}"></span><div class="action-main"><strong>${esc(action.proposedAction||action.eventTitle)}</strong><p>${esc(action.eventTitle)} · ${esc(action.buildingName)}${action.roomName?' · '+esc(action.roomName):''}</p><p>Updated ${esc(when(action.updatedAt))} · Outcome ${esc(action.outcome||'pending')} · <span class="pill sim">${esc(action.provenance||'SIMULATED')}</span></p><span class="status ${stateClass(action.state)}">${esc(action.state)}</span><div class="timeline">${(action.transitions||[]).map(t=>`<div class="timeline-item"><span>•</span><span><strong>${esc(t.toState)}</strong> · ${esc(when(t.at))}<br>${esc(t.note||t.actor||'State transition recorded')}</span></div>`).join('')}</div>${action.state==='PENDING_APPROVAL'?`<div style="margin-top:12px"><button class="btn primary small" data-approve-id="${esc(action.id)}">Approve & verify</button></div>`:''}<p class="hint">Action ID: ${esc(action.id)}</p></div></article>`).join('')||'<div class="empty">No actions yet. Run the energy-waste scenario to create a proposed simulated action.</div>';
+    document.querySelectorAll('[data-approve-id]').forEach(btn=>btn.addEventListener('click',()=>approveAction(btn.dataset.approveId,btn)));
+  }
+  function renderBuildings() {
+    $('buildings-grid').innerHTML=state.buildings.map(building=>`<article class="building"><h3>${esc(building.name)}</h3><p class="building-meta">${(building.rooms||[]).length} registered room(s) · local demo records</p>${(building.rooms||[]).map(room=>`<button class="room-chip" data-room-id="${esc(room.id)}" data-room-name="${esc(room.name)}">▦ ${esc(room.name)} <span style="color:var(--muted)">${esc(room.code)}</span></button>`).join('')||'<p class="hint">No rooms registered yet.</p>'}</article>`).join('')||'<div class="empty">No buildings are persisted yet. Run a scenario to create an explicitly labelled demo building and room.</div>';
+    document.querySelectorAll('[data-room-id]').forEach(btn=>btn.addEventListener('click',()=>{state.selectedRoomId=btn.dataset.roomId; notify(`Camera context set to ${btn.dataset.roomName} (${btn.dataset.roomId}).`,'ok');showView('camera');}));
+  }
+  async function refreshAll() {
+    const results=await Promise.allSettled([
+      api('/api/v1/ui/dashboard/overview'),api('/api/v1/ui/events'),api('/api/v1/ui/actions'),api('/api/v1/ui/buildings'),api('/api/vision/health')
+    ]);
+    if(results[0].status==='fulfilled') state.overview=results[0].value;
+    if(results[1].status==='fulfilled') state.events=results[1].value;
+    if(results[2].status==='fulfilled') state.actions=results[2].value;
+    if(results[3].status==='fulfilled') state.buildings=results[3].value;
+    if(results[4].status==='fulfilled') state.visionHealth=results[4].value;
+    const failures=results.filter(r=>r.status==='rejected');
+    renderMetrics();renderEventCollection();renderActions();renderBuildings();renderVisionHealth();
+    if(failures.length===results.length) { notify('The backend could not be reached. Confirm that the CampusTwin API is running, then refresh.','error'); throw new Error('Backend is unavailable.'); }
+    if(failures.length) notify(`Some panels could not refresh (${failures.length} request(s)). Use Refresh data to retry.`,'error');
+    else { const n=$('notice'); if(n.classList.contains('error')) n.className='notice'; }
+    return state;
+  }
+  async function runScenario(scenario,outcome) {
+    const buttons=[...document.querySelectorAll('[data-scenario]')]; buttons.forEach(b=>b.disabled=true);
+    try {
+      const payload={scenario};if(outcome)payload.outcome=outcome;
+      const result=await api('/api/v1/ui/scenarios/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      await refreshAll();
+      if(result.createdEventIds?.length) state.selectedEventId=result.createdEventIds[0];
+      renderEventCollection();
+      showView('events');
+      notify(`${result.message} Provenance: ${result.provenance}. Inspect the event evidence, then open Actions & audit to approve any proposal.`,'ok');
+    } catch(error) { notify(`Scenario failed: ${error.message}`,'error'); }
+    finally { buttons.forEach(b=>b.disabled=false); }
+  }
+  async function approveAction(id,button) {
+    if(button)button.disabled=true;
+    try {
+      const key=(window.crypto?.randomUUID?.()||`lite-${Date.now()}-${Math.random().toString(16).slice(2)}`);
+      const result=await api(`/api/v1/ui/actions/${encodeURIComponent(id)}/approve`,{method:'POST',headers:{'Idempotency-Key':key,'Content-Type':'application/json'},body:'{}'});
+      await refreshAll(); showView('actions');
+      notify(`Action result: ${result.state}. Acknowledgement alone is not success; inspect the verification state and ledger.` ,result.state==='VERIFIED_SUCCESS'?'ok':'');
+    } catch(error) { notify(`Action approval failed: ${error.message}`,'error'); }
+    finally { if(button)button.disabled=false; }
+  }
+  $('event-search').addEventListener('input',renderEventCollection);$('event-status').addEventListener('change',renderEventCollection);
+  async function refreshPreflight() {
+    try {
+      const [health,preflight]=await Promise.all([api('/api/v1/health'),api('/api/v1/preflight')]);
+      const vision=state.visionHealth||await api('/api/vision/health');
+      const rows=[['Backend',health.status,health.app||'Local API'],['Database',health.database, 'SQLite / configured database'],['Runtime preflight',preflight.status,`${(preflight.checks||[]).length} backend checks`],['Camera inference',vision.status|| (vision.detector_available?'AVAILABLE':'UNAVAILABLE'),vision.message||'Local model health'],['Copilot',state.overview?.health?.copilot?.state||'TEMPLATE','No provider key is required for core demo workflows'],['Frontend', 'NO-BUILD FALLBACK','React/Vite production build is a separate release gate']];
+      $('health-list').innerHTML=rows.map(([label,status,detail])=>`<div class="health-row"><span><strong>${esc(label)}</strong><br><span class="hint">${esc(detail)}</span></span><span class="status ${stateClass(status)}">${esc(status)}</span></div>`).join('');
+    } catch(error) { $('health-list').innerHTML=`<div class="empty">Health check failed: ${esc(error.message)}</div>`; }
+  }
+  $('run-preflight').addEventListener('click',refreshPreflight);
+
+  function renderVisionHealth() {
+    const health=state.visionHealth;
+    const available=Boolean(health?.detector_available);
+    $('detector-pill').textContent=available?'DETECTOR AVAILABLE':'DETECTOR UNAVAILABLE';
+    $('detector-pill').className=`status ${available?'good':'warn'}`;
+    $('analyze-video').disabled=!available||!state.videoFile||state.videoBusy;
+    $('camera-message').textContent=available?'Local model reports available. Live samples can be sent for inference when you attest to adequate coverage.':'No compatible local detector is configured. Camera preview works, but inference remains UNKNOWN/UNAVAILABLE; no people count will be fabricated.';
+    if(!available && !$('vision-result').textContent.includes('not configured')) $('vision-result').textContent='Detector UNAVAILABLE. Preview inputs are available, but no person-detection result is produced without a compatible configured model.';
+  }
+  async function refreshVision() { try { state.visionHealth=await api('/api/vision/health');renderVisionHealth(); } catch(error) { $('detector-pill').textContent='HEALTH CHECK FAILED';$('detector-pill').className='status bad';$('camera-message').textContent=error.message; } }
+  function selectedRoom() { return state.selectedRoomId || 'CS-LAB-01'; }
+  async function sendFrame(blob,label,coverage) {
+    const params=new URLSearchParams({room_id:selectedRoom(),coverage_confirmed:String(Boolean(coverage)),camera_label:label});
+    const response=await api(`/api/vision/frame?${params}`,{method:'POST',headers:{'Content-Type':'image/jpeg','Accept':'application/json'},body:blob,signal:AbortSignal.timeout(10000)});
+    $('vision-result').textContent=JSON.stringify(response,null,2);return response;
+  }
+  function liveFrame() {
+    const video=$('live-video'); if(state.frameBusy||!state.stream||!state.visionHealth?.detector_available||video.readyState<2||!video.videoWidth)return;
+    state.frameBusy=true;
+    const canvas=document.createElement('canvas'); const w=Math.min(video.videoWidth,640);canvas.width=w;canvas.height=Math.max(1,Math.round(video.videoHeight/video.videoWidth*w));
+    const ctx=canvas.getContext('2d',{alpha:false}); if(!ctx){state.frameBusy=false;return;}ctx.drawImage(video,0,0,canvas.width,canvas.height);
+    canvas.toBlob(async blob=>{try{if(blob)await sendFrame(blob,'Local fallback webcam',$('coverage-check').checked);}catch(error){$('camera-message').textContent=`Frame inference failed: ${error.message}. Occupancy remains unknown.`;}finally{canvas.width=1;canvas.height=1;state.frameBusy=false;}},'image/jpeg',0.62);
+  }
+  $('start-camera').addEventListener('click',async()=>{
+    try {
+      if(!navigator.mediaDevices?.getUserMedia) throw new Error('This browser does not expose camera access here. Open this page from localhost or HTTPS.');
+      state.stream=await navigator.mediaDevices.getUserMedia({video:true,audio:false});
+      $('live-video').srcObject=state.stream;await $('live-video').play();$('live-placeholder').hidden=true;
+      $('start-camera').disabled=true;$('stop-camera').disabled=false;
+      if(state.visionHealth?.detector_available) state.cameraTimer=window.setInterval(liveFrame,2000);
+      else $('camera-message').textContent='Camera preview is live, but detector inference is UNAVAILABLE. No occupancy conclusions are being generated.';
+    } catch(error) { notify(`Camera could not start: ${error.message}`,'error');$('camera-message').textContent=error.message; }
+  });
+  function stopCamera() {
+    if(state.cameraTimer!==null)window.clearInterval(state.cameraTimer);state.cameraTimer=null;
+    if(state.stream)state.stream.getTracks().forEach(track=>track.stop());state.stream=null;
+    $('live-video').srcObject=null;$('live-placeholder').hidden=false;$('start-camera').disabled=false;$('stop-camera').disabled=true;
+  }
+  $('stop-camera').addEventListener('click',stopCamera);
+  $('video-file').addEventListener('change',event=>{
+    const file=event.target.files?.[0];if(!file)return;
+    const supported=file.type.startsWith('video/')||/\.(mp4|webm|mov|m4v|ogv)$/i.test(file.name);
+    if(!supported){notify('Choose a supported video file, such as MP4 or WebM.','error');event.target.value='';return;}
+    if(file.size>250*1024*1024){notify('Video exceeds the 250 MB local-processing limit.','error');event.target.value='';return;}
+    if(state.uploadedUrl)URL.revokeObjectURL(state.uploadedUrl);
+    state.uploadedUrl=URL.createObjectURL(file);state.videoFile=file;$('uploaded-video').onloadedmetadata=()=>{const duration=$('uploaded-video').duration;if(!Number.isFinite(duration)||duration<=0)$('video-message').textContent='Video duration could not be read; try another file.';else if(duration>1800)$('video-message').textContent='Video is longer than 30 minutes. Choose a shorter recording.';else $('video-message').textContent=`Preview ready · ${Math.round(duration)} seconds. Analysis samples frames locally; max 300 frames.`;updateVideoButton();};
+    $('uploaded-video').onerror=()=>{$('video-message').textContent='The browser could not decode this video file. Try MP4 or WebM.';};
+    $('uploaded-video').src=state.uploadedUrl;$('uploaded-preview-wrap').style.display='block';$('video-meta').textContent=`${file.name} · ${(file.size/1024/1024).toFixed(1)} MB · kept in this browser tab`;$('video-message').textContent='Preview loaded locally. Original file is not uploaded to CampusTwin.';$('analyze-video').disabled=!state.visionHealth?.detector_available;$('uploaded-video').load();
+  });
+  function updateVideoButton(){const video=$('uploaded-video');$('analyze-video').disabled=!state.visionHealth?.detector_available||!state.videoFile||!Number.isFinite(video.duration)||video.duration<=0||video.duration>1800||state.videoBusy;}
+  function seekTo(video,time){return new Promise((resolve,reject)=>{if(Math.abs(video.currentTime-time)<0.015&&video.readyState>=2){resolve();return;}let timer=0;const cleanup=()=>{video.removeEventListener('seeked',ok);video.removeEventListener('error',bad);clearTimeout(timer);};const ok=()=>{cleanup();resolve();};const bad=()=>{cleanup();reject(new Error('The browser could not decode a sampled video frame.'));};video.addEventListener('seeked',ok,{once:true});video.addEventListener('error',bad,{once:true});timer=setTimeout(()=>{cleanup();reject(new Error('Timed out while seeking within the video.'));},6000);video.currentTime=Math.min(Math.max(0,time),Math.max(0,video.duration-.01));});}
+  function canvasBlob(canvas){return new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(new Error('Could not encode sampled frame.')),'image/jpeg',0.62));}
+  $('analyze-video').addEventListener('click',async()=>{
+    const video=$('uploaded-video');if(!state.videoFile||!state.uploadedUrl){notify('Choose a video file first.','error');return;}
+    if(!state.visionHealth?.detector_available){$('video-message').textContent='Detector UNAVAILABLE. The local video can be previewed, but inference cannot run until a reviewed ONNX model is configured.';return;}
+    if(!Number.isFinite(video.duration)||video.duration<=0||video.duration>1800){notify('Choose a valid video shorter than 30 minutes.','error');return;}
+    stopCamera();state.videoBusy=true;state.cancelVideo=false;$('stop-video-analysis').disabled=false;$('video-progress').hidden=false;$('analyze-video').disabled=true;
+    const canvas=document.createElement('canvas');let processed=0;const interval=Math.max(1,Number($('sample-interval').value)||2);const step=Math.max(interval,video.duration/300);const total=Math.max(1,Math.min(300,Math.ceil(video.duration/step)));$('progress-bar').max=total;$('progress-bar').value=0;$('progress-count').textContent=`0 / ${total}`;$('video-message').textContent='Processing sampled frames locally…';
+    try{
+      for(let index=0;index<total;index++){
+        if(state.cancelVideo)break;
+        await seekTo(video,Math.min(index*step,Math.max(0,video.duration-.01)));
+        if(!video.videoWidth||!video.videoHeight)throw new Error('The selected file has no decodable image at the sampled position.');
+        const w=Math.min(video.videoWidth,640);canvas.width=w;canvas.height=Math.max(1,Math.round(video.videoHeight/video.videoWidth*w));const ctx=canvas.getContext('2d',{alpha:false});if(!ctx)throw new Error('Canvas frame extraction is unavailable in this browser.');ctx.drawImage(video,0,0,canvas.width,canvas.height);const blob=await canvasBlob(canvas);canvas.width=1;canvas.height=1;if(blob.size>2*1024*1024)throw new Error('A sampled JPEG exceeded 2 MB. Try a smaller-resolution recording.');
+        await sendFrame(blob,'Uploaded video (retrospective sample)',false);processed++;$('progress-bar').value=processed;$('progress-count').textContent=`${processed} / ${total}`;
+      }
+      $('video-message').textContent=state.cancelVideo?`Stopped by operator after ${processed} frame(s). The result shows the latest processed sample.`:`Finished processing ${processed} sampled frame(s). Uploaded video is retrospective evidence and is not eligible for live empty-room timers.`;
+    }catch(error){$('video-message').textContent=`Analysis failed: ${error.message}. Occupancy remains unknown unless a valid detector response was received.`;notify(error.message,'error');}
+    finally{canvas.width=1;canvas.height=1;state.videoBusy=false;$('stop-video-analysis').disabled=true;updateVideoButton();}
+  });
+  $('stop-video-analysis').addEventListener('click',()=>{state.cancelVideo=true;$('video-message').textContent='Stopping after current frame…';});
+  window.addEventListener('beforeunload',()=>{stopCamera();if(state.uploadedUrl)URL.revokeObjectURL(state.uploadedUrl);});
+  async function init(){try{await refreshAll();await refreshPreflight();}catch(error){notify(`Startup check: ${error.message}`,'error');} }
+  init();
+})();
+</script>
+</body>
+</html>

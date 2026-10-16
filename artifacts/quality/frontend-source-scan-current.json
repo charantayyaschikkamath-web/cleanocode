@@ -1,0 +1,11 @@
+{
+  "files_checked": 33,
+  "relative_imports_checked": 62,
+  "syntax_errors": 0,
+  "missing_relative_imports": 0,
+  "details": {
+    "syntax_errors": [],
+    "missing_relative_imports": []
+  },
+  "note": "This is syntax and relative-import validation only, not full TypeScript type-checking or a Vite production build."
+}

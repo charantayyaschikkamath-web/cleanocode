@@ -1,0 +1,15 @@
+{
+  "id": "ACTION-TRANSITION-000001",
+  "action_id": "ACTION-000001",
+  "event_id": "EVENT-000001",
+  "from_status": "PENDING_APPROVAL",
+  "to_status": "COMMAND_SENT",
+  "actor_type": "OPERATOR",
+  "actor_id": "operator-demo",
+  "reason_code": "HUMAN_APPROVED",
+  "evidence_ids": [
+    "EVIDENCE-000001"
+  ],
+  "created_at": "2026-10-15T12:07:00Z",
+  "request_id": "0192d8d0-4a42-7c41-b6e5-9f0df1e21a01"
+}

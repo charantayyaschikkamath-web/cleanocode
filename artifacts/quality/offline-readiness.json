@@ -1,0 +1,56 @@
+{
+  "report_type": "OFFLINE_READINESS_AUDIT",
+  "generated_at": "2026-10-16T05:30:43.622769Z",
+  "root": "/mnt/data/CampusTwin_AI_Merged",
+  "status": "FAIL",
+  "counts": {
+    "PASS": 1,
+    "WARN": 4,
+    "FAIL": 2
+  },
+  "checks": [
+    {
+      "name": "frontend_lockfile",
+      "status": "FAIL",
+      "details": "No lockfile is present; exact frontend dependency resolution is not reproducible.",
+      "repair": "Generate and review package-lock.json, then run npm ci before preparing offline mode."
+    },
+    {
+      "name": "frontend_build",
+      "status": "FAIL",
+      "details": "frontend/dist/index.html is missing.",
+      "repair": "Run npm ci and npm run build after a lockfile is committed."
+    },
+    {
+      "name": "external_assets",
+      "status": "WARN",
+      "details": "Cannot audit external assets until frontend is built.",
+      "repair": ""
+    },
+    {
+      "name": "python_requirements",
+      "status": "PASS",
+      "details": "Backend requirements file exists.",
+      "repair": ""
+    },
+    {
+      "name": "python_wheelhouse",
+      "status": "WARN",
+      "details": "No prepared offline Python wheelhouse was found.",
+      "repair": "Run scripts/prepare_offline.py --prepare-python after network-connected dependency review."
+    },
+    {
+      "name": "frontend_node_modules",
+      "status": "WARN",
+      "details": "Frontend dependencies are not installed in this workspace.",
+      "repair": "Use npm ci while online, then test a clean offline start."
+    },
+    {
+      "name": "vision_weights",
+      "status": "WARN",
+      "details": "No local vision model file found; offline camera inference is unavailable. Simulated mode must be labelled, and camera status must remain UNKNOWN when evidence is unavailable.",
+      "repair": "Only add reviewed/licensed model weights intentionally; never download model weights automatically at startup."
+    }
+  ],
+  "offline_ready": false
+}

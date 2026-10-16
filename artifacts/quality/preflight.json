@@ -1,0 +1,258 @@
+{
+  "report_type": "PRELIGHT_CHECK_RESULTS",
+  "generated_at": "2026-10-16T05:30:42.939455Z",
+  "project_root": "/mnt/data/CampusTwin_AI_Merged",
+  "status": "FAIL",
+  "counts": {
+    "PASS": 29,
+    "WARN": 5,
+    "FAIL": 1
+  },
+  "checks": [
+    {
+      "name": "python_version",
+      "status": "PASS",
+      "message": "Python 3.13.5 is available.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "file:backend/app/main.py",
+      "status": "PASS",
+      "message": "backend/app/main.py exists.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "file:backend/app/core/config.py",
+      "status": "PASS",
+      "message": "backend/app/core/config.py exists.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "file:backend/app/db/session.py",
+      "status": "PASS",
+      "message": "backend/app/db/session.py exists.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "file:backend/app/routers/scenarios.py",
+      "status": "PASS",
+      "message": "backend/app/routers/scenarios.py exists.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "file:backend/app/routers/actions.py",
+      "status": "PASS",
+      "message": "backend/app/routers/actions.py exists.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "file:backend/app/vision/router.py",
+      "status": "PASS",
+      "message": "backend/app/vision/router.py exists.",
+      "repair": "",
+      "required": false
+    },
+    {
+      "name": "file:backend/app/copilot/router.py",
+      "status": "PASS",
+      "message": "backend/app/copilot/router.py exists.",
+      "repair": "",
+      "required": false
+    },
+    {
+      "name": "file:backend/app/what_if/router.py",
+      "status": "PASS",
+      "message": "backend/app/what_if/router.py exists.",
+      "repair": "",
+      "required": false
+    },
+    {
+      "name": "file:frontend/package.json",
+      "status": "PASS",
+      "message": "frontend/package.json exists.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "file:frontend/src/main.tsx",
+      "status": "PASS",
+      "message": "frontend/src/main.tsx exists.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "file:docs/CONTRACTS.md",
+      "status": "PASS",
+      "message": "docs/CONTRACTS.md exists.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "file:docs/KNOWN_LIMITATIONS.md",
+      "status": "PASS",
+      "message": "docs/KNOWN_LIMITATIONS.md exists.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "file:docs/ALGORITHMS.md",
+      "status": "PASS",
+      "message": "docs/ALGORITHMS.md exists.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "file:.env.example",
+      "status": "PASS",
+      "message": ".env.example exists.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "file:config.yaml",
+      "status": "PASS",
+      "message": "config.yaml exists.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "python_dependency:fastapi",
+      "status": "PASS",
+      "message": "Required Python module `fastapi` is importable.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "python_dependency:pydantic",
+      "status": "PASS",
+      "message": "Required Python module `pydantic` is importable.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "python_dependency:sqlalchemy",
+      "status": "PASS",
+      "message": "Required Python module `sqlalchemy` is importable.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "python_dependency:yaml",
+      "status": "PASS",
+      "message": "Required Python module `yaml` is importable.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "python_dependency:dotenv",
+      "status": "PASS",
+      "message": "Required Python module `dotenv` is importable.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "python_dependency:httpx",
+      "status": "PASS",
+      "message": "Required Python module `httpx` is importable.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "node_toolchain",
+      "status": "PASS",
+      "message": "Node.js and npm are available.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "frontend_lockfile",
+      "status": "WARN",
+      "message": "No frontend package lockfile is present; clean/offline npm install is not reproducible yet.",
+      "repair": "Run npm install, review the generated lockfile, and commit it before release.",
+      "required": false
+    },
+    {
+      "name": "frontend_build",
+      "status": "FAIL",
+      "message": "Built frontend assets are missing.",
+      "repair": "From frontend/, run npm ci and npm run build; do not mark release-ready until build output exists.",
+      "required": true
+    },
+    {
+      "name": "database",
+      "status": "WARN",
+      "message": "Database file does not exist yet; nearest existing parent `/mnt/data/CampusTwin_AI_Merged/data` is writable.",
+      "repair": "Start the backend once (which should create the configured data directory), then rerun preflight to validate the database file.",
+      "required": false
+    },
+    {
+      "name": "virtual_clock",
+      "status": "PASS",
+      "message": "Virtual-time multiplier is valid.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "llm_provider_key",
+      "status": "WARN",
+      "message": "No LLM provider key detected; template mode should be used.",
+      "repair": "Optional: configure COPILOT_API_BASE_URL, COPILOT_API_KEY and COPILOT_MODEL server-side; no key is required for core demo paths.",
+      "required": false
+    },
+    {
+      "name": "vision_model",
+      "status": "WARN",
+      "message": "No local vision model file is configured/found; camera inference is unavailable and must remain UNKNOWN/UNAVAILABLE, not be replaced with live-looking sample detections.",
+      "repair": "Optional: set VISION_MODEL_PATH to reviewed local weights. Do not auto-download weights at startup; simulated occupancy must remain visibly labelled.",
+      "required": false
+    },
+    {
+      "name": "core_route_registration",
+      "status": "PASS",
+      "message": "Canonical main.py mounts the core health/buildings/events/ledger routers.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "action_and_scenario_routes",
+      "status": "PASS",
+      "message": "Canonical main.py mounts the required routers for action and scenario routes.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "camera_vision_routes",
+      "status": "PASS",
+      "message": "Canonical main.py mounts the required routers for camera vision routes.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "copilot_and_reports_routes",
+      "status": "PASS",
+      "message": "Canonical main.py mounts the required routers for copilot and reports routes.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "what_if_routes",
+      "status": "PASS",
+      "message": "Canonical main.py mounts the required routers for what if routes.",
+      "repair": "",
+      "required": true
+    },
+    {
+      "name": "offline_dependency_inputs",
+      "status": "WARN",
+      "message": "Offline dependency preparation is not reproducible until a frontend lockfile is committed.",
+      "repair": "Resolve/pin dependencies, generate the frontend lockfile, and prepare the wheelhouse before disabling Wi-Fi.",
+      "required": false
+    }
+  ]
+}

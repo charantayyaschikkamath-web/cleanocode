@@ -1,0 +1,21 @@
+{
+  "id": "EVENT-000001",
+  "event_type": "likely_energy_waste",
+  "severity": "MEDIUM",
+  "status": "OPEN",
+  "building_id": "BLD-01",
+  "room_id": "ROOM-101",
+  "first_seen_at": "2026-10-15T12:05:00Z",
+  "last_updated_at": "2026-10-15T12:05:00Z",
+  "provenance": "SIMULATED",
+  "evidence_ids": [
+    "EVIDENCE-000001"
+  ],
+  "primary_rule_id": "ENERGY_EMPTY_HIGH_POWER_V1",
+  "summary": "Possible energy waste: likely-empty room with sustained high power.",
+  "limits": [
+    "This event is based on simulated readings."
+  ],
+  "created_at": "2026-10-15T12:05:00Z",
+  "updated_at": "2026-10-15T12:05:00Z"
+}

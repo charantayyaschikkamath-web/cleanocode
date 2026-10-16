@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "files_parsed": 32,
+  "syntax_errors": 0,
+  "relative_imports_inspected": 59,
+  "missing_relative_imports": 0,
+  "errors": [],
+  "scope": "Syntax/path scan only; does not perform dependency-backed TypeScript typechecking, Vite production bundling, or browser E2E."
+}

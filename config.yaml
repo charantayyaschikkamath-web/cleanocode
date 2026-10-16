@@ -1,0 +1,27 @@
+# Runtime defaults for the Account 2 backend. Environment variables override these values.
+app:
+  name: CampusTwin AI API
+  version: 0.1.0
+  environment: development
+  api_prefix: /api/v1
+
+database:
+  url: sqlite:///./data/campustwin.db
+
+logging:
+  level: INFO
+
+cors:
+  allowed_origins:
+    - http://localhost:5173
+    - http://127.0.0.1:5173
+
+virtual_time:
+  # Accelerates scenario timestamps only. Do not apply this multiplier to an already specified virtual duration.
+  multiplier: 30
+
+impact:
+  # Keep null until the campus provides a defensible tariff/emission factor.
+  tariff_per_kwh: null
+  co2_factor_kg_per_kwh: null
+  calculation_version: energy-impact-v1
